@@ -15,6 +15,7 @@ class PostController extends Controller
      */
      public function index(Post $post)
      {
-         return $post->get();
+        //  dd($post->getPaginateByLimit());
+         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
      }
 }
