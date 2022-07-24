@@ -18,11 +18,27 @@
                         <a href='/posts/{{ $post->id }}'>{{ $post->title }}</a>
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
+                    
+                    <form action='/posts/{{ $post->id }}' method='POST'>
+                        @csrf
+                        @method('DELETE')
+                        <input type='submit' name='delete' value='削除' onClick="delete_alert(event);return false;" />
+                    </form>
                 </div>
             @endforeach
         </div>
         <div class="paginate">
             {{ $posts->links() }}
         </div>
+        <script>
+            function delete_alert(e){
+                if(!window.confirm('本当に削除しますか？')){
+                    window.alert('キャンセルされました'); 
+                    return false;
+                    }
+                document.deleteform.submit();
+            };
+
+        </script>
     </body>
 </html>
