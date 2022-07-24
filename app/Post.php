@@ -18,4 +18,9 @@ class Post extends Model
         //updated_at降順，limit_countでpaginateする
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
+    protected $fillable = [
+        'title',
+        'body',
+        ];
 }
