@@ -7,6 +7,8 @@ use App\Http\Requests\PostRequest;
 use App\Category;
 use App\Post;
 
+
+
 class PostController extends Controller
 {
     /**
@@ -17,7 +19,7 @@ class PostController extends Controller
      */
      public function index(Post $post)
      {
-         //  dd($post->getPaginateByLimit());
+        //  dd($post->getPaginateByLimit());
          return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
      }
      
