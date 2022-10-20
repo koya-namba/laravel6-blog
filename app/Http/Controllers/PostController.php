@@ -8,7 +8,6 @@ use App\Category;
 use App\Post;
 
 
-
 class PostController extends Controller
 {
     /**
@@ -19,7 +18,7 @@ class PostController extends Controller
      */
      public function index(Post $post)
      {
-        //  dd($post->getPaginateByLimit());
+         // getPaginateByLimit()はどこで定義されているか？
          return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
      }
      
@@ -35,8 +34,12 @@ class PostController extends Controller
      
      public function store(Post $post, PostRequest $request)
      {
+        //  $request['post']には何の情報が入っているか？
          $input = $request['post'];
+         
+        //  fill()を実行ために必要な記述は何か？
          $post->fill($input)->save();
+         
          return redirect('/posts/' . $post->id);
      }
      
