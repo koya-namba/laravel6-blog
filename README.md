@@ -9,7 +9,7 @@
 [こちら]()で試すことができます．  
 
 ログインする際には，  
-email : test@test.com
+email : test@test.com  
 PW : testdemo
 
 # Features
